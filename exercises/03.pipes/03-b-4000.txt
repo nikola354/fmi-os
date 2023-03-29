@@ -29,3 +29,13 @@ file3:
 	* статистика за броя редове, думи и символи за всеки един файл
 	* статистика за броя редове и символи за всички файлове
 	* общия брой редове на трите файла
+	
+	
+mkdir dir5
+
+touch dir5/file{1,2,3}
+
+cat file1 file2 file3 | wc -l
+cat file1 file2 file3 | wc -w
+cat file1 file2 file3 | wc -c
+

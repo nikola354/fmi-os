@@ -1,2 +1,5 @@
 Намерете броя на уникалните символи, използвани в имената на потребителите от
 /etc/passwd.
+
+cat /etc/passwd | cut -f5 -d: | cut -f1 -d , | sed 's/ //g' | egrep -o '.' | sort | uniq | wc -l
+

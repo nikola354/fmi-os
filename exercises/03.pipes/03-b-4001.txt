@@ -1,1 +1,3 @@
 Във file2 (inplace) подменете всички малки букви с главни.
+
+cat file2 | echo $(tr '[:lower:]' '[:upper:]') > file2

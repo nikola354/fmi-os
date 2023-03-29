@@ -1,2 +1,4 @@
 Отпечатайте правата (permissions) и имената на всички файлове, до които имате
 read достъп, намиращи се в директорията /tmp. (hint: 'man find', вижте -readable)
+
+find /tmp -maxdepth 1 -type f -readable -exec ls -l {} \; | cut -f1,9 -d ' '
