@@ -1,1 +1,8 @@
 Да се напише shell скрипт, който приканва потребителя да въведе низ (име) и изпечатва "Hello, низ".
+
+  1 #!/bin/bash
+  2 
+  3 read -p 'Please enter your name: ' name
+  4 
+  5 echo "Hello, ${name}"
+
