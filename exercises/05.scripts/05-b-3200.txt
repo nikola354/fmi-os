@@ -1,1 +1,10 @@
 Да се напише shell скрипт, който приканва потребителя да въведе пълното име на директория и извежда на стандартния изход подходящо съобщение за броя на всички файлове и всички директории в нея.
+
+  3 read -p 'Enter a directory: ' dir
+  4 
+  5 echo $dir
+  6 
+  7 echo "Files count: " $(find $dir -maxdepth 1 -mindepth 1 -type f | wc -l)
+  8 
+  9 echo "Dirs count " $(find $dir -maxdepth 1 -mindepth 1 -type d | wc -l)
+

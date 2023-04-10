@@ -1,1 +1,12 @@
 Да се напише shell скрипт, който приема точно един параметър и проверява дали подаденият му параметър се състои само от букви и цифри.
+
+  2 
+  3 read -p 'Enter string: ' str
+  4 
+  5 if echo $str | grep -q -E -v "[^0-9a-zA-Z]"
+  6 then
+  7     echo $str "is alphanumeric"
+  8 else
+  9     echo $str " is not alphanumeric"
+ 10 fi
+
