@@ -8,3 +8,39 @@ $ ./nicenumber.sh 1889734853
 
 $ ./nicenumber.sh 7632223 ,
 7,632,223
+
+
+
+
+  1 #!/bin/bash
+  2 
+  3 if [ $# -lt 1 ]||[ $# -gt 2 ]
+  4 then
+  5     echo "Wrong number of args"
+  6     exit 1
+  7 fi
+  8 
+  9 DELIM=' '
+ 10 
+ 11 if [ $# -eq 2 ]
+ 12 then
+ 13     DELIM=$2
+ 14 fi
+ 15 
+ 16 OUTPUT=''
+ 17 
+ 18 NUMBER=$1
+ 19 
+ 20 while [ $NUMBER -gt 0 ]
+ 21 do
+ 22     OUTPUT=$(echo $(( ${NUMBER} % 1000 ))${DELIM}${OUTPUT} )
+ 23     NUMBER=$(( ${NUMBER} / 1000 ))
+ 24 done
+ 25 
+ 26 if [ "${DELIM}" -ne ' ' ]
+ 27 then
+ 28     DELIM=$(echo $DELIM | head -c -2)
+ 29 fi
+ 30 
+ 31 echo $OUTPUT
+

@@ -1,1 +1,9 @@
 Да се напише shell скрипт, който чете от стандартния вход имената на 3 файла, обединява редовете на първите два (man paste), подрежда ги по азбучен ред и резултата записва в третия файл.
+
+#!/bin/bash
+  2 
+  3 read -p 'Enter first file: ' file1
+  4 read -p 'Enter second file: ' file2
+  5 read -p 'Enter destination file: ' dest
+  6 
+  7 paste file1 file2 | sort -d > dest

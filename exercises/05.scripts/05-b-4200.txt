@@ -21,3 +21,27 @@ int main(int argc, char *argv[]) {
 
 Изход:
 The deepest nesting is 2 levels
+
+
+
+  3 read -p 'Enter the name of the .c file: ' file
+  4 
+  5 brackets=$(cat ${file} | sed "s/[^{}]//g" | sed -r "s/(.)/\1\n/g")
+  6 
+  7 result=0
+  8 level=0
+  9 
+ 10 for b in $brackets
+ 11 do
+ 12     if echo $b | grep -E -q "[{]"
+ 13     then
+ 14         level=$(( ${level} + 1 ))
+ 15         if [[ $level -gt $result ]]
+ 16         then
+ 17             result=$level
+ 18         fi
+ 19     else
+ 20         level=$(( ${level} - 1 ))
+ 21     fi
+ 22 done
+
