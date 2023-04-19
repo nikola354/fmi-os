@@ -26,3 +26,23 @@ $ cat table.html
     <td>GECOS 2</td>
   </tr>
 </table>
+
+
+
+
+
+  1 #!/bin/bash
+  2 
+  3 echo "<table>"
+  4 
+  5 echo "\t<tr>"
+  6 echo "\t\t<th>Username</th>"
+  7 echo "\t\t<th>group</th>"
+  8 echo "\t\t<th>login shell</th>"
+  9 echo "\t\t<th>login shell</th>"
+ 10 echo "\t</tr>"
+ 11 
+ 12 cut -d: -f1,4,6,7 /etc/passwd | awk -F: '{print "\t<tr>"} {print "\t\t<th>"$1"</th>"} {print "\t\t<th>"$2"</th>"} {print "\t\t<th>"$3"</th>"} {print "\t\t<th>"$4"</th>"}  {print "\t</tr>"}'
+ 13 
+ 14 echo "</table>"
+
