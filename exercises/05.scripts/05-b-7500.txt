@@ -14,3 +14,34 @@ Guess? 5
 RIGHT! Guessed 5 in 5 tries!
 
 Hint: Един начин да направите рандъм число е с $(( (RANDOM % b) + a  )), което ще генерира число в интервала [a, b]. Може да вземете a и b като параметри, но не забравяйте да направите проверката.
+
+
+  1 #!/bin/bash
+  2 
+  3 a=1
+  4 b=100
+  5 
+  6 number=$(( (RANDOM % $b) + $a ))
+  7 
+  8 echo My number is between $a and $b
+  9 
+ 10 tries=0
+ 11 
+ 12 while true
+ 13 do
+ 14     read -p 'Guess? ' g
+ 15 
+ 16     tries=$(( $tries + 1 ))
+ 17 
+ 18     if [ $g -eq $number ]
+ 19     then
+ 20         echo Congrats! You guessed the number in $tries tries
+ 21         exit 0
+ 22     elif [ $number -gt $g ]
+ 23     then
+ 24         echo ...bigger!
+ 25     else
+ 26         echo ...smaller!
+ 27     fi
+ 28 done
+~            
